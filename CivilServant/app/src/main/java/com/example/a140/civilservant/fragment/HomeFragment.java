@@ -32,6 +32,13 @@ public class HomeFragment extends android.support.v4.app.Fragment implements Ima
     private LinearLayout ButtonLike;
     private LinearLayout ButtonNote;
 
+    //类型题目
+    private LinearLayout testyanyu;
+    private LinearLayout testshul;
+    private LinearLayout testpand;
+    private LinearLayout testziliao;
+    private LinearLayout testchangshi;
+
     private ImageBannerFrameLayout mGroup;
 
     //轮播图的图片
@@ -51,10 +58,18 @@ public class HomeFragment extends android.support.v4.app.Fragment implements Ima
 
     private void initView(View view) {
 
+        //横向排列的四个部分
         ButtonExam = view.findViewById(R.id.id_button_exam);
         ButtonWrong = view.findViewById(R.id.id_button_wrong);
         ButtonLike = view.findViewById(R.id.id_button_like);
         ButtonNote = view.findViewById(R.id.id_button_note);
+
+        //类型题
+        testyanyu = view.findViewById(R.id.id_test_yanyu);
+        testshul = view.findViewById(R.id.id_test_shul);
+        testpand = view.findViewById(R.id.id_test_pand);
+        testziliao = view.findViewById(R.id.id_test_ziliao);
+        testchangshi = view.findViewById(R.id.id_test_changshi);
 
         /*轮播图*/
         mGroup = view.findViewById(R.id.image_group);
