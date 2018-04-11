@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.a140.civilservant.R;
@@ -24,6 +25,12 @@ import java.util.List;
  */
 
 public class HomeFragment extends android.support.v4.app.Fragment implements ImageBannerFrameLayout.FrameLayoutListener {
+
+    //整卷、错题、收藏、笔记
+    private LinearLayout ButtonExam;
+    private LinearLayout ButtonWrong;
+    private LinearLayout ButtonLike;
+    private LinearLayout ButtonNote;
 
     private ImageBannerFrameLayout mGroup;
 
@@ -43,6 +50,13 @@ public class HomeFragment extends android.support.v4.app.Fragment implements Ima
     }
 
     private void initView(View view) {
+
+        ButtonExam = view.findViewById(R.id.id_button_exam);
+        ButtonWrong = view.findViewById(R.id.id_button_wrong);
+        ButtonLike = view.findViewById(R.id.id_button_like);
+        ButtonNote = view.findViewById(R.id.id_button_note);
+
+        /*轮播图*/
         mGroup = view.findViewById(R.id.image_group);
         List<Bitmap> list = new ArrayList<>();
         for (int i = 0; i < ids.length; i++) {
