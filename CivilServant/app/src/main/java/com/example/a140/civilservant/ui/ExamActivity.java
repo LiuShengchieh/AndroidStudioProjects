@@ -35,13 +35,18 @@ public class ExamActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exam);
 
+        //连接数据库，获取题目
         DBService dbService = new DBService();
         final List<Question> list = dbService.getQuestion();
 
+        //题目的数量
         count = list.size();
+        //当前位于第几题，默认为第一题
         current = 0;
+        //错题模式默认为false
         wrongNode = false;
 
+        //找到activity各个控件的ID
         final TextView tv_question = (TextView) findViewById(R.id.question);
         final RadioButton[] radioButtons = new RadioButton[4];
         radioButtons[0] = (RadioButton) findViewById(R.id.answerA);
