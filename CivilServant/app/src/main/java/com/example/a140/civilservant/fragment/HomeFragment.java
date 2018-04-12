@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import com.example.a140.civilservant.ui.ExamActivity;
 import com.example.a140.civilservant.R;
+import com.example.a140.civilservant.ui.ShulActivity;
+import com.example.a140.civilservant.ui.YanyuActivity;
 import com.example.a140.civilservant.view.ImageBannerFrameLayout;
 
 import java.util.ArrayList;
@@ -78,7 +80,22 @@ public class HomeFragment extends android.support.v4.app.Fragment implements Ima
 
         //类型题
         testyanyu = view.findViewById(R.id.id_test_yanyu);
+        testyanyu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), YanyuActivity.class);
+                startActivity(intent);
+            }
+        });
+
         testshul = view.findViewById(R.id.id_test_shul);
+        testshul.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), ShulActivity.class);
+                startActivity(intent);
+            }
+        });
         testpand = view.findViewById(R.id.id_test_pand);
         testziliao = view.findViewById(R.id.id_test_ziliao);
         testchangshi = view.findViewById(R.id.id_test_changshi);

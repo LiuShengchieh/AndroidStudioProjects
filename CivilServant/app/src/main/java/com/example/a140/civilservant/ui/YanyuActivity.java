@@ -4,25 +4,26 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import com.example.a140.civilservant.service.DBService;
 import com.example.a140.civilservant.R;
 import com.example.a140.civilservant.entity.Question;
+import com.example.a140.civilservant.service.DBService;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by a140 on 2018/4/11.
- * "整卷"的activity页面
+ * Created by a140 on 2018/4/12.
+ * 言语理解与表达
  */
 
-public class ExamActivity extends AppCompatActivity {
+public class YanyuActivity extends AppCompatActivity {
     //题目总数
     private int count;
     //当前题目
@@ -33,7 +34,7 @@ public class ExamActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_exam);
+        setContentView(R.layout.activity_yanyu);
 
         //连接数据库，获取题目
         DBService dbService = new DBService();
@@ -41,6 +42,7 @@ public class ExamActivity extends AppCompatActivity {
 
         //题目的数量
         count = list.size();
+        Log.i("list size:", Integer.toString(count));
         //当前位于第几题，默认为第一题
         current = 0;
         //错题模式默认为false
@@ -72,8 +74,8 @@ public class ExamActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //判断是否为最后一题
-                if (current < count - 1) {
-                    //不是最后一题
+                if (current < 4) {
+                    //不是最后一题，点击进入
                     current++;
                     Question q = list.get(current);
                     tv_question.setText(q.question);
@@ -87,15 +89,15 @@ public class ExamActivity extends AppCompatActivity {
                     if (q.selectedAnswer != -1) {
                         radioButtons[q.selectedAnswer].setChecked(true);
                     }
-                } else if (current == count - 1 && wrongNode == true) {
-                    //最后一题并处于错题模式
-                    new AlertDialog.Builder(ExamActivity.this)
+                } else if (current == 4 && wrongNode == true) {
+                    //最后一题并处于错题模式，询问是否退出
+                    new AlertDialog.Builder(YanyuActivity.this)
                             .setTitle("提示")
                             .setMessage("已是最后一题，是否退出？")
                             .setPositiveButton("是", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    ExamActivity.this.finish();
+                                    YanyuActivity.this.finish();
                                 }
                             })
                             .setNegativeButton("否", null)
@@ -105,27 +107,28 @@ public class ExamActivity extends AppCompatActivity {
                     final List<Integer> wrongList = checkAnswer(list);
                     if (wrongList.size() == 0) {
                         //Dialog提示全对然后退出
-                        new AlertDialog.Builder(ExamActivity.this)
+                        new AlertDialog.Builder(YanyuActivity.this)
                                 .setTitle("提示")
                                 .setMessage("恭喜你全部回答正确！")
                                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
-                                        ExamActivity.this.finish();
+                                        YanyuActivity.this.finish();
                                     }
                                 })
                                 .show();
                     }
                     //Dialog提示对错数目并询问是否查看错题
-                    new AlertDialog.Builder(ExamActivity.this)
+                    new AlertDialog.Builder(YanyuActivity.this)
                             .setTitle("提示")
-                            .setMessage("您答对了" + (list.size() - wrongList.size())
+                            .setMessage("您答对了" + (5 - wrongList.size())
                                     + "道题目，答错了" + wrongList.size() + "道题目。是否查看错题？")
+                            //查看错题（有答案和解析）
                             .setPositiveButton("是", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     wrongNode = true;
-                                    List<Question> newList = new ArrayList<Question>();
+                                    List<Question> newList = new ArrayList<>();
                                     for (int i = 0; i < wrongList.size(); i++) {
                                         newList.add(list.get(wrongList.get(i)));
                                     }
@@ -135,7 +138,7 @@ public class ExamActivity extends AppCompatActivity {
                                     }
                                     current = 0;
                                     count = list.size();
-                                    Question q = list.get(current);//final 不然不能从内部类中访问
+                                    Question q = list.get(current);
                                     tv_question.setText(q.question);
                                     radioButtons[0].setText(q.answerA);
                                     radioButtons[1].setText(q.answerB);
@@ -148,7 +151,7 @@ public class ExamActivity extends AppCompatActivity {
                             .setNegativeButton("否", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    ExamActivity.this.finish();
+                                    YanyuActivity.this.finish();
                                 }
                             })
                             .show();
@@ -163,7 +166,7 @@ public class ExamActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (current > 0) {
                     current--;
-                    Question q = list.get(current);//final 不然不能从内部类中访问
+                    Question q = list.get(current);
                     tv_question.setText(q.question);
                     radioButtons[0].setText(q.answerA);
                     radioButtons[1].setText(q.answerB);
@@ -195,8 +198,8 @@ public class ExamActivity extends AppCompatActivity {
 
     //判断答案对错
     private List<Integer> checkAnswer(List<Question> list) {
-        List<Integer> wrongList = new ArrayList<Integer>();
-        for (int i = 0; i < list.size(); i++) {
+        List<Integer> wrongList = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
             if (list.get(i).answer != list.get(i).selectedAnswer) {
                 wrongList.add(i);
             }
