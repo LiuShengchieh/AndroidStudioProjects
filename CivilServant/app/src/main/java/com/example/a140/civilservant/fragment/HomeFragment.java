@@ -11,10 +11,13 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.a140.civilservant.ui.ChangsActivity;
 import com.example.a140.civilservant.ui.ExamActivity;
 import com.example.a140.civilservant.R;
+import com.example.a140.civilservant.ui.PandActivity;
 import com.example.a140.civilservant.ui.ShulActivity;
 import com.example.a140.civilservant.ui.YanyuActivity;
+import com.example.a140.civilservant.ui.ZiliaoActivity;
 import com.example.a140.civilservant.view.ImageBannerFrameLayout;
 
 import java.util.ArrayList;
@@ -63,13 +66,8 @@ public class HomeFragment extends android.support.v4.app.Fragment implements Ima
 
     private void initView(View view) {
 
-        //横向排列的四个部分
+        /*整卷、错题、收藏、笔记*/
         ButtonExam = view.findViewById(R.id.id_button_exam);
-        ButtonWrong = view.findViewById(R.id.id_button_wrong);
-        ButtonLike = view.findViewById(R.id.id_button_like);
-        ButtonNote = view.findViewById(R.id.id_button_note);
-
-        //"整卷"的点击事件
         ButtonExam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,7 +76,11 @@ public class HomeFragment extends android.support.v4.app.Fragment implements Ima
             }
         });
 
-        //类型题
+        ButtonWrong = view.findViewById(R.id.id_button_wrong);
+        ButtonLike = view.findViewById(R.id.id_button_like);
+        ButtonNote = view.findViewById(R.id.id_button_note);
+
+        /*5种类型题的点击事件*/
         testyanyu = view.findViewById(R.id.id_test_yanyu);
         testyanyu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,8 +99,29 @@ public class HomeFragment extends android.support.v4.app.Fragment implements Ima
             }
         });
         testpand = view.findViewById(R.id.id_test_pand);
+        testpand.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), PandActivity.class);
+                startActivity(intent);
+            }
+        });
         testziliao = view.findViewById(R.id.id_test_ziliao);
+        testziliao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), ZiliaoActivity.class);
+                startActivity(intent);
+            }
+        });
         testchangshi = view.findViewById(R.id.id_test_changshi);
+        testchangshi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), ChangsActivity.class);
+                startActivity(intent);
+            }
+        });
 
         /*轮播图*/
         mGroup = view.findViewById(R.id.image_group);

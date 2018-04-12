@@ -22,6 +22,12 @@
             android:label="@string/activity_yanyu"/>
         <activity android:name=".ui.ShulActivity"
             android:label="@string/activity_shul"/>
+        <activity android:name=".ui.PandActivity"
+            android:label="@string/activity_pand"/>
+        <activity android:name=".ui.ZiliaoActivity"
+            android:label="@string/activity_ziliao"/>
+        <activity android:name=".ui.ChangsActivity"
+            android:label="@string/activity_changshi"/>
     </application>
 
 </manifest>
