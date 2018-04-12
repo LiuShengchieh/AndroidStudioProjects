@@ -1,4 +1,4 @@
-package com.example.a140.civilservant;
+package com.example.a140.civilservant.entity;
 
 /**
  * Created by a140 on 2018/4/10.

@@ -14,7 +14,7 @@ import java.util.TimerTask;
 
 /**
  * Created by a140 on 2018/4/10.
- * 图片轮播
+ * 自定义View：图片轮播
  */
 
 public class ImageBannerViewGroup extends ViewGroup {

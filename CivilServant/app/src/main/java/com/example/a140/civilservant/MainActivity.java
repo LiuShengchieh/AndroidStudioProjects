@@ -12,10 +12,16 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.a140.civilservant.entity.C;
 import com.example.a140.civilservant.fragment.HomeFragment;
 import com.example.a140.civilservant.fragment.KnowFragment;
 import com.example.a140.civilservant.fragment.MeFragment;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,6 +65,45 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         initView();
         //切换事件
         initEvents();
+        //初始化数据库数据
+        initData();
+    }
+
+    private void initData() {
+        //数据库路径
+        String DB_PATH = "/data/data/com.example.a140.civilservant/databases/";
+        //数据库名字
+        String DB_NAME = "question.db";
+
+        //判断数据库是否已复制
+        if ((new File(DB_PATH + DB_NAME).exists()) == false) {
+            File dir = new File(DB_PATH);
+            if (!dir.exists()) {
+                dir.mkdir();
+            }
+
+            //复制文件
+            try {
+                InputStream is = getBaseContext().getAssets().open(DB_NAME);
+                OutputStream os = new FileOutputStream(DB_PATH + DB_NAME);
+                //用来复制文件
+                byte[] buffer = new byte[1024];
+                //保存已经复制的文件长度
+                int length;
+                //开始复制
+                while ((length = is.read(buffer)) > 0) {
+                    os.write(buffer, 0, length);
+                }
+                //Refresh
+                os.flush();
+                //Close
+                os.close();
+                is.close();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private void initView() {

@@ -1,5 +1,6 @@
 package com.example.a140.civilservant.fragment;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.a140.civilservant.ui.ExamActivity;
 import com.example.a140.civilservant.R;
 import com.example.a140.civilservant.view.ImageBannerFrameLayout;
 
@@ -39,6 +41,7 @@ public class HomeFragment extends android.support.v4.app.Fragment implements Ima
     private LinearLayout testziliao;
     private LinearLayout testchangshi;
 
+    //轮播图
     private ImageBannerFrameLayout mGroup;
 
     //轮播图的图片
@@ -64,6 +67,15 @@ public class HomeFragment extends android.support.v4.app.Fragment implements Ima
         ButtonLike = view.findViewById(R.id.id_button_like);
         ButtonNote = view.findViewById(R.id.id_button_note);
 
+        //"整卷"的点击事件
+        ButtonExam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), ExamActivity.class);
+                startActivity(intent);
+            }
+        });
+
         //类型题
         testyanyu = view.findViewById(R.id.id_test_yanyu);
         testshul = view.findViewById(R.id.id_test_shul);
@@ -84,6 +96,7 @@ public class HomeFragment extends android.support.v4.app.Fragment implements Ima
         mGroup.setFrameLayoutListener(this);
     }
 
+    //点击轮播图的图片
     @Override
     public void clickImageIndex(int pos) {
         Toast.makeText(getContext(), "pos=" + pos, Toast.LENGTH_SHORT).show();

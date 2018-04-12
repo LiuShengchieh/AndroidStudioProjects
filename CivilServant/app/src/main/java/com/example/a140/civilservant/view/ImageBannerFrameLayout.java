@@ -12,14 +12,14 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.example.a140.civilservant.C;
+import com.example.a140.civilservant.entity.C;
 import com.example.a140.civilservant.R;
 
 import java.util.List;
 
 /**
  * Created by a140 on 2018/4/10.
- * 图片轮播
+ * 自定义View：图片轮播，继承自FrameLayout，添加了切换不同图片时显示的圆点状态
  */
 
 public class ImageBannerFrameLayout extends FrameLayout implements ImageBannerViewGroup.ImageBannerViewGroupListener,
