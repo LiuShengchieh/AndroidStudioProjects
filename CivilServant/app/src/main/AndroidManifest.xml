@@ -22,6 +22,22 @@
             android:label="@string/activity_yanyu"/>
         <activity android:name=".ui.ShulActivity"
             android:label="@string/activity_shul"/>
+        <activity android:name=".ui.HistoryActivity"
+            android:label="@string/activity_history"/>
+        <activity android:name=".ui.BasicActivity"
+            android:label="@string/activity_basic"/>
+        <activity android:name=".ui.ProcessActivity"
+            android:label="@string/activity_process"/>
+        <activity android:name=".ui.AnnouncementActivity"
+            android:label="@string/activity_announcement"/>
+        <activity android:name=".ui.TimeActivity"
+            android:label="@string/activity_time"/>
+        <activity android:name=".ui.InstitutionActivity"
+            android:label="@string/activity_institution"/>
+        <activity android:name=".ui.SecretActivity"
+            android:label="@string/activity_secret"/>
+        <activity android:name=".ui.TitleActivity"
+            android:label="@string/activity_title"/>
     </application>
 
 </manifest>
