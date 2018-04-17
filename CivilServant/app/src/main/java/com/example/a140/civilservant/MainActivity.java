@@ -12,10 +12,10 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.a140.civilservant.entity.C;
 import com.example.a140.civilservant.fragment.HomeFragment;
 import com.example.a140.civilservant.fragment.KnowFragment;
 import com.example.a140.civilservant.fragment.MeFragment;
+import com.example.a140.civilservant.utils.StaticClass;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -24,6 +24,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.bmob.v3.Bmob;
 
 /*
 * 公务员考试app
@@ -59,7 +61,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         //计算当前手机的屏幕宽度
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
-        C.WIDTH = dm.widthPixels;
+        StaticClass.WIDTH = dm.widthPixels;
 
         //初始化View
         initView();

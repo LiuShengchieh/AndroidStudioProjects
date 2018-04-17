@@ -12,8 +12,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.example.a140.civilservant.entity.C;
 import com.example.a140.civilservant.R;
+import com.example.a140.civilservant.utils.StaticClass;
 
 import java.util.List;
 
@@ -80,7 +80,7 @@ public class ImageBannerFrameLayout extends FrameLayout implements ImageBannerVi
     private void addBitmapToImageBannerViewGroup(Bitmap bitmap) {
         ImageView iv = new ImageView(getContext());
         iv.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        iv.setLayoutParams(new ViewGroup.LayoutParams(C.WIDTH, ViewGroup.LayoutParams.WRAP_CONTENT));
+        iv.setLayoutParams(new ViewGroup.LayoutParams(StaticClass.WIDTH, ViewGroup.LayoutParams.WRAP_CONTENT));
         iv.setImageBitmap(bitmap);
         imageBannerViewGroup.addView(iv);
     }
