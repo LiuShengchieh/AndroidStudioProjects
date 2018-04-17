@@ -7,7 +7,6 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-import com.example.a140.civilservant.MainActivity;
 import com.example.a140.civilservant.R;
 import com.example.a140.civilservant.utils.ShareUtils;
 import com.example.a140.civilservant.utils.StaticClass;
@@ -34,7 +33,9 @@ public class SplashActivity extends AppCompatActivity {
             super.handleMessage(msg);
             switch (msg.what) {
                 case (StaticClass.HANDLER_SPLASH):
-                    //判断程序是否第一次运行
+                    /*判断程序是否第一次运行
+                    * 是的话进入引导页
+                    * 否的话进入登录页*/
                     if (isFirst()) {
                         startActivity(new Intent(SplashActivity.this, GuideActivity.class));
                     } else {
@@ -47,7 +48,7 @@ public class SplashActivity extends AppCompatActivity {
     };
 
     @Override
-    protected void onCreate( Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         initView();
@@ -55,7 +56,6 @@ public class SplashActivity extends AppCompatActivity {
 
     //初始化view
     private void initView() {
-
         //延时2000ms
         handler.sendEmptyMessageDelayed(StaticClass.HANDLER_SPLASH, 2000);
 
@@ -63,7 +63,6 @@ public class SplashActivity extends AppCompatActivity {
 
         //设置字体
         UtilTools.setFont(this, tv_splash);
-
     }
 
     public boolean isFirst() {
@@ -82,5 +81,4 @@ public class SplashActivity extends AppCompatActivity {
     public void onBackPressed() {
         //super.onBackPressed();
     }
-
 }

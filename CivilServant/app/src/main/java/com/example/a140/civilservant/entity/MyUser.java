@@ -8,8 +8,11 @@ import cn.bmob.v3.BmobUser;
  */
 
 public class MyUser extends BmobUser {
+    //年龄
     private int age;
+    //性别
     private boolean sex;
+    //简介
     private String desc;
 
     public int getAge() {

@@ -11,11 +11,10 @@ import cn.bmob.v3.Bmob;
  */
 
 public class BaseApplication extends Application {
-
     @Override
     public void onCreate() {
         super.onCreate();
-        //Bmob初始化
+        //初始化Bmob
         Bmob.initialize(this, StaticClass.BMOB_APP_ID);
     }
 }

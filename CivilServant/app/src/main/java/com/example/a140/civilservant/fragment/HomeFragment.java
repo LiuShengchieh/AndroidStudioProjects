@@ -11,9 +11,9 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.a140.civilservant.R;
 import com.example.a140.civilservant.ui.ChangsActivity;
 import com.example.a140.civilservant.ui.ExamActivity;
-import com.example.a140.civilservant.R;
 import com.example.a140.civilservant.ui.PandActivity;
 import com.example.a140.civilservant.ui.ShulActivity;
 import com.example.a140.civilservant.ui.YanyuActivity;
@@ -25,14 +25,16 @@ import java.util.List;
 
 /**
  * Created by a140 on 2018/4/10.
- * 首页：三个部分
+ * "考试"页面：三个部分
  * 1、轮播图
+ * bug:手动轮播无效
  * 2、横向排列（整卷、错题、收藏、笔记）
+ * 错题、收藏、笔记，因为时间问题，来不及写功能代码，点击的话只会弹出Toast
  * 3、纵向排列（不同类型的题目练习）
+ * 每个类型5道题目
  */
 
 public class HomeFragment extends android.support.v4.app.Fragment implements ImageBannerFrameLayout.FrameLayoutListener {
-
     //整卷、错题、收藏、笔记
     private LinearLayout ButtonExam;
     private LinearLayout ButtonWrong;
@@ -75,12 +77,29 @@ public class HomeFragment extends android.support.v4.app.Fragment implements Ima
                 startActivity(intent);
             }
         });
-
         ButtonWrong = view.findViewById(R.id.id_button_wrong);
+        ButtonWrong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "错题", Toast.LENGTH_SHORT).show();
+            }
+        });
         ButtonLike = view.findViewById(R.id.id_button_like);
+        ButtonLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "收藏", Toast.LENGTH_SHORT).show();
+            }
+        });
         ButtonNote = view.findViewById(R.id.id_button_note);
+        ButtonNote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "笔记", Toast.LENGTH_SHORT).show();
+            }
+        });
 
-        /*5种类型题的点击事件*/
+        /*5种类型题的点击事件，点击后跳转做题*/
         testyanyu = view.findViewById(R.id.id_test_yanyu);
         testyanyu.setOnClickListener(new View.OnClickListener() {
             @Override

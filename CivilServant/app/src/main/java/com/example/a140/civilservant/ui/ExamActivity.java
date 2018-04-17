@@ -3,16 +3,15 @@ package com.example.a140.civilservant.ui;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import com.example.a140.civilservant.service.DBService;
 import com.example.a140.civilservant.R;
 import com.example.a140.civilservant.entity.Question;
+import com.example.a140.civilservant.service.DBService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +21,7 @@ import java.util.List;
  * 整卷
  */
 
-public class ExamActivity extends AppCompatActivity {
+public class ExamActivity extends BaseActivity {
     //题目总数
     private int count;
     //当前题目

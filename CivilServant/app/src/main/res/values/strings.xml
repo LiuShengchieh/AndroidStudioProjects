@@ -1,8 +1,11 @@
 <resources>
+    <!--APP名字-->
     <string name="app_name">公务员考试</string>
+    <!--注册/登录/密码-->
     <string name="login">登录</string>
     <string name="register">注册</string>
     <string name="text_now_login">正在登录...</string>
+    <string name="forget_pwd">忘记密码</string>
     <!--首页-->
     <string name="activity_exam">整卷</string>
     <string name="activity_yanyu">言语理解与表达</string>

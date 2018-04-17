@@ -2,7 +2,6 @@ package com.example.a140.civilservant.ui;
 
 import android.os.Bundle;
 import android.support.annotation.IdRes;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -19,11 +18,19 @@ import cn.bmob.v3.listener.SaveListener;
 
 /**
  * Created by a140 on 2018/4/17.
- * 注册
+ * 注册：注册登录用的是Bmob的后端服务
+ * Bmob的官网地址：https://www.bmob.cn/
  */
 
-public class RegisteredActivity extends AppCompatActivity implements View.OnClickListener {
-
+public class RegisteredActivity extends BaseActivity implements View.OnClickListener {
+    /*
+    * 用户名
+    * 年龄
+    * 简介
+    * 性别（男女）
+    * 密码
+    * 确认密码
+    * 注册*/
     private EditText et_user;
     private EditText et_age;
     private EditText et_desc;
@@ -37,16 +44,16 @@ public class RegisteredActivity extends AppCompatActivity implements View.OnClic
 
     //性别
     private boolean isGender = true;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registered);
-
         initView();
     }
 
+    //初始化View
     private void initView() {
-
         et_user = (EditText) findViewById(R.id.et_user);
         et_age = (EditText) findViewById(R.id.et_age);
         et_desc = (EditText) findViewById(R.id.et_desc);
@@ -60,6 +67,7 @@ public class RegisteredActivity extends AppCompatActivity implements View.OnClic
         btnRegistered.setOnClickListener(this);
     }
 
+    //点击事件
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -73,11 +81,11 @@ public class RegisteredActivity extends AppCompatActivity implements View.OnClic
                 String email = et_email.getText().toString().trim();
 
                 //判断是否为空
-                if ( !TextUtils.isEmpty(name) &
+                if (!TextUtils.isEmpty(name) &
                         !TextUtils.isEmpty(age) &
                         !TextUtils.isEmpty(email) &
                         !TextUtils.isEmpty(pass) &
-                        !TextUtils.isEmpty(password) ) {
+                        !TextUtils.isEmpty(password)) {
                     if (pass.equals(password)) {
                         //判断性别
                         mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {

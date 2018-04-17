@@ -3,7 +3,6 @@ package com.example.a140.civilservant.ui;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -23,7 +22,7 @@ import java.util.List;
  * 言语理解与表达
  */
 
-public class YanyuActivity extends AppCompatActivity {
+public class YanyuActivity extends BaseActivity {
     //题目总数
     private int count;
     //当前题目

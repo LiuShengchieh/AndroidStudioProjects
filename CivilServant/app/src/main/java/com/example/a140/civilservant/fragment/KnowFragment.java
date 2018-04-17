@@ -21,7 +21,7 @@ import com.example.a140.civilservant.ui.TitleActivity;
 
 /**
  * Created by a140 on 2018/4/11.
- * 知识：公务员考试知识点
+ * "知识"页面
  */
 
 public class KnowFragment extends Fragment {
@@ -54,7 +54,8 @@ public class KnowFragment extends Fragment {
 
     //初始化View
     private void initView(View view) {
-        /*点击事件*/
+        /*点击事件，点击进入各个页面*/
+        //历史沿革
         tv_history = view.findViewById(R.id.tv_history);
         tv_history.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +64,7 @@ public class KnowFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        //基本形式
         tv_basic = view.findViewById(R.id.tv_basic);
         tv_basic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +73,7 @@ public class KnowFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        //考试流程
         tv_process = view.findViewById(R.id.tv_process);
         tv_process.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +82,7 @@ public class KnowFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        //招考公告
         tv_announcement = view.findViewById(R.id.tv_announcement);
         tv_announcement.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +91,7 @@ public class KnowFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        //考试时间
         tv_time = view.findViewById(R.id.tv_time);
         tv_time.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,6 +100,7 @@ public class KnowFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        //录用机关
         tv_institution = view.findViewById(R.id.tv_institution);
         tv_institution.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,6 +109,7 @@ public class KnowFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        //国考揭秘
         tv_secret = view.findViewById(R.id.tv_secret);
         tv_secret.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,6 +118,7 @@ public class KnowFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        //申论题目
         tv_title = view.findViewById(R.id.tv_title);
         tv_title.setOnClickListener(new View.OnClickListener() {
             @Override

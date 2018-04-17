@@ -3,7 +3,6 @@ package com.example.a140.civilservant.ui;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -23,7 +22,7 @@ import java.util.List;
  * 常识判断
  */
 
-public class ChangsActivity extends AppCompatActivity {
+public class ChangsActivity extends BaseActivity {
     //题目总数
     private int count;
     //当前题目
@@ -43,7 +42,7 @@ public class ChangsActivity extends AppCompatActivity {
         //题目的数量
         count = list.size();
         Log.i("list size:", Integer.toString(count));
-        //当前位于第几题
+        //当前位于第几题，默认第20题
         current = 20;
         //错题模式默认为false
         wrongNode = false;

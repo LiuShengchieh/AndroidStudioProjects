@@ -30,23 +30,25 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     //注册按钮
     private Button btn_registered;
 
+    /*姓名，密码，登录，记住密码，忘记密码*/
     private EditText et_name;
     private EditText et_password;
     private Button btnLogin;
     private CheckBox keep_password;
     private TextView tv_forget;
 
+    //自定义Dialog
     private CustomDialog dialog;
 
     @Override
-    protected void onCreate( Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         initView();
     }
 
+    //初始化View
     private void initView() {
-
         tv_forget = (TextView) findViewById(R.id.tv_forget);
         tv_forget.setOnClickListener(this);
 
@@ -69,13 +71,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             et_password.setText(ShareUtils.getString(this, "password", ""));
         }
 
-
         //dialog
         dialog = new CustomDialog(this, 100, 100, R.layout.dialog_loding, R.style.Theme_dialog, Gravity.CENTER, R.style.pop_anim_style);
         //屏幕外点击无效
         dialog.setCancelable(false);
     }
 
+    //点击事件
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -117,7 +119,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 } else {
                     Toast.makeText(this, "输入框不能为空", Toast.LENGTH_SHORT).show();
                 }
-
                 break;
         }
     }
@@ -126,10 +127,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
         //保存状态
         ShareUtils.putBoolean(this, "keeppass", keep_password.isChecked());
-
         //是否记住密码
         if (keep_password.isChecked()) {
             //记住用户名和密码
@@ -140,7 +139,5 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             ShareUtils.deleShare(this, "name");
             ShareUtils.deleShare(this, "password");
         }
-
     }
-
 }

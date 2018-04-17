@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -14,28 +13,28 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:orientation="vertical"
+            android:background="@drawable/knife_girl"
             android:gravity="center"
-            android:background="@drawable/knife_girl">
+            android:orientation="vertical">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profile_image"
                 android:layout_width="96dp"
                 android:layout_height="96dp"
                 android:src="@drawable/add_pic"
-                app:civ_border_width="2dp"
-                app:civ_border_color="@color/colorPrimary" />
+                app:civ_border_color="@color/colorPrimary"
+                app:civ_border_width="2dp" />
 
             <TextView
                 android:id="@+id/edit_user"
                 android:layout_width="100dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="20dp"
-                android:text="编辑资料"
-                android:textSize="16sp"
-                android:gravity="center"
                 android:background="@drawable/button_bg"
-                android:textColor="@android:color/white"/>
+                android:gravity="center"
+                android:text="编辑资料"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
 
         </LinearLayout>
 
@@ -50,7 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="姓名："
-                android:textSize="20dp"/>
+                android:textSize="20dp" />
 
             <EditText
                 android:id="@+id/et_username"
@@ -128,19 +127,19 @@
             android:id="@+id/btn_update_ok"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="确定修改"
             android:layout_margin="10dp"
             android:background="@drawable/button_bg"
+            android:text="确定修改"
             android:textColor="@android:color/white"
             android:visibility="gone" />
 
         <!--我的考试-->
         <TextView
             android:id="@+id/tv_test"
-            android:clickable="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
+            android:clickable="true"
             android:text="我的考试"
             android:textSize="20dp" />
 
@@ -155,10 +154,10 @@
         <!--我的课程-->
         <TextView
             android:id="@+id/tv_course"
-            android:clickable="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
+            android:clickable="true"
             android:text="我的课程"
             android:textSize="20dp" />
 
@@ -175,10 +174,10 @@
             android:id="@+id/btn_exit_user"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="退出登录"
+            android:layout_margin="10dp"
             android:background="@drawable/button_bg"
-            android:textColor="@android:color/white"
-            android:layout_margin="10dp" />
+            android:text="退出登录"
+            android:textColor="@android:color/white" />
 
     </LinearLayout>
 

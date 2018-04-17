@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.example.a140.civilservant.MainActivity;
 import com.example.a140.civilservant.R;
 
 import java.util.ArrayList;
@@ -21,7 +20,6 @@ import java.util.List;
  */
 
 public class GuideActivity extends AppCompatActivity implements View.OnClickListener {
-
     private ViewPager mViewPager;
 
     //容器
@@ -43,19 +41,19 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
 
     //初始化
     private void initView() {
-
+        //跳过
         iv_back = (ImageView) findViewById(R.id.iv_back);
         iv_back.setOnClickListener(this);
-
+        //图片上的三个点
         point1 = (ImageView) findViewById(R.id.point1);
         point2 = (ImageView) findViewById(R.id.point2);
         point3 = (ImageView) findViewById(R.id.point3);
-
         //设置默认图片
         setPointImg(true, false, false);
 
         mViewPager = (ViewPager) findViewById(R.id.mViewPager);
 
+        //加载页面
         view1 = View.inflate(this, R.layout.pager_item_one, null);
         view2 = View.inflate(this, R.layout.pager_item_two, null);
         view3 = View.inflate(this, R.layout.pager_item_three, null);
@@ -104,7 +102,6 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
     }
 
     class GuideAdapter extends PagerAdapter {
-
         @Override
         public int getCount() {
             return mList.size();
@@ -157,10 +154,9 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
         switch (view.getId()) {
             case R.id.btn_start:
             case R.id.iv_back:
-                startActivity(new Intent(this, MainActivity.class));
+                startActivity(new Intent(this, LoginActivity.class));
                 finish();
                 break;
         }
     }
-
 }

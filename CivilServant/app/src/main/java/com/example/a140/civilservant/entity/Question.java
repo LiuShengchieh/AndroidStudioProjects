@@ -6,10 +6,9 @@ package com.example.a140.civilservant.entity;
  */
 
 public class Question {
-        /*
-    * 对应的就是Filter1-7  还有一个选中答案
+    /*
+    * 对应的就是Filter1-7，还有一个选中的答案
     * */
-
     //问题
     public String question;
     //答案
@@ -25,5 +24,4 @@ public class Question {
     public int ID;
     //选中的答案
     public int selectedAnswer;
-
 }

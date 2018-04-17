@@ -11,9 +11,9 @@ import com.example.a140.civilservant.R;
  * 招考公告
  */
 
-public class AnnouncementActivity extends AppCompatActivity {
+public class AnnouncementActivity extends BaseActivity {
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_announcement);
     }

@@ -25,8 +25,6 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.bmob.v3.Bmob;
-
 /*
 * 公务员考试app
 * */
@@ -141,6 +139,10 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 return mFragment.size();
             }
         });
+
+        //登录成功进入首页，将按钮的图片和字体颜色设为选中状态
+        mHomeImg.setImageResource(R.drawable.home_pressed);
+        mHomeText.setTextColor(getColor(R.color.textPressed));
     }
 
     //切换事件
@@ -190,16 +192,19 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     public void onClick(View view) {
         resetImg();
         switch (view.getId()) {
+            //"考试"页面
             case R.id.id_tab_home:
                 mViewPager.setCurrentItem(0);
                 mHomeImg.setImageResource(R.drawable.home_pressed);
                 mHomeText.setTextColor(getColor(R.color.textPressed));
                 break;
+            //"知识"页面
             case R.id.id_tab_know:
                 mViewPager.setCurrentItem(1);
                 mKnowImg.setImageResource(R.drawable.know_pressed);
                 mKnowText.setTextColor(getColor(R.color.textPressed));
                 break;
+            //"我的"页面
             case R.id.id_tab_me:
                 mViewPager.setCurrentItem(2);
                 mMeImg.setImageResource(R.drawable.me_pressed);

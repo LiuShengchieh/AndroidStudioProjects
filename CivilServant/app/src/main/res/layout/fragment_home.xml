@@ -223,8 +223,6 @@
                 android:src="@drawable/write" />
         </LinearLayout>
 
-
     </LinearLayout>
-
 
 </LinearLayout>

@@ -35,23 +35,37 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by a140 on 2018/4/11.
+ * "我的"页面，如下几个功能：
+ * 1、修改头像
+ * 2、编辑资料
+ * 3、退出登录
+ * 4、我的考试
+ * 5、我的课程
  */
 
 public class MeFragment extends Fragment implements View.OnClickListener {
-
+    //退出登录
     private Button btn_exit_user;
+    //编辑资料
     private TextView edit_user;
+    //姓名，性别，年龄，简介
     private EditText et_username;
     private EditText et_sex;
     private EditText et_age;
     private EditText et_desc;
+    //确定修改
     private Button btn_update_ok;
+    //圆形头像
     private CircleImageView profile_image;
+    //自定义Dialog
     private CustomDialog dialog;
+    //拍照，图库，取消
     private Button btn_camera;
     private Button btn_picture;
     private Button btn_cancel;
+    //我的考试
     private TextView tv_test;
+    //我的课程
     private TextView tv_course;
 
     @Nullable
@@ -64,7 +78,6 @@ public class MeFragment extends Fragment implements View.OnClickListener {
 
     //初始化View
     private void initView(View view) {
-
         //我的考试
         tv_test = view.findViewById(R.id.tv_test);
         tv_test.setOnClickListener(this);
@@ -73,15 +86,19 @@ public class MeFragment extends Fragment implements View.OnClickListener {
         tv_course = view.findViewById(R.id.tv_course);
         tv_course.setOnClickListener(this);
 
+        //退出登录
         btn_exit_user = view.findViewById(R.id.btn_exit_user);
         btn_exit_user.setOnClickListener(this);
 
+        //编辑资料
         edit_user = view.findViewById(R.id.edit_user);
         edit_user.setOnClickListener(this);
 
+        //确定修改
         btn_update_ok = view.findViewById(R.id.btn_update_ok);
         btn_update_ok.setOnClickListener(this);
 
+        //个人资料
         et_username = view.findViewById(R.id.et_username);
         et_sex = view.findViewById(R.id.et_sex);
         et_age = view.findViewById(R.id.et_age);
@@ -100,12 +117,15 @@ public class MeFragment extends Fragment implements View.OnClickListener {
         //屏幕外点击无效
         dialog.setCancelable(false);
 
+        //相机
         btn_camera = (Button) dialog.findViewById(R.id.btn_camera);
         btn_camera.setOnClickListener(this);
 
+        //图库
         btn_picture = (Button) dialog.findViewById(R.id.btn_picture);
         btn_picture.setOnClickListener(this);
 
+        //取消
         btn_cancel = (Button) dialog.findViewById(R.id.btn_cancel);
         btn_cancel.setOnClickListener(this);
 
@@ -129,6 +149,7 @@ public class MeFragment extends Fragment implements View.OnClickListener {
         et_desc.setEnabled(is);
     }
 
+    /*点击事件：控件点击后的逻辑操作*/
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -172,18 +193,17 @@ public class MeFragment extends Fragment implements View.OnClickListener {
                     } else {
                         user.setDesc("这个人很懒， 啥也没留下");
                     }
-
                     //更新
                     BmobUser bmobUser = BmobUser.getCurrentUser();
                     user.update(bmobUser.getObjectId(), new UpdateListener() {
                         @Override
                         public void done(BmobException e) {
-                            if(e == null){
+                            if (e == null) {
                                 setEnabled(false);
                                 btn_update_ok.setVisibility(View.GONE);
                                 Toast.makeText(getActivity(), "更新成功", Toast.LENGTH_SHORT).show();
-                            }else{
-                                Toast.makeText(getActivity(), "更新失败：" + e.getMessage() , Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(getActivity(), "更新失败：" + e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
@@ -205,15 +225,14 @@ public class MeFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.tv_test:
                 Toast.makeText(getActivity(), "我的考试", Toast.LENGTH_SHORT).show();
-                //startActivity(new Intent(getActivity(), CourierActivity.class));
                 break;
             case R.id.tv_course:
                 Toast.makeText(getActivity(), "我的课程", Toast.LENGTH_SHORT).show();
-                //startActivity(new Intent(getActivity(), PhoneActivity.class));
                 break;
         }
     }
 
+    //常量
     public static final String PHOTO_IMAGE_FILE_NAME = "fileImg.jpg";
     public static final int CAMERA_REQUEST_CODE = 100;
     public static final int IMAGE_REQUEST_CODE = 101;
@@ -223,7 +242,6 @@ public class MeFragment extends Fragment implements View.OnClickListener {
 
     //跳转相机
     private void toCamera() {
-
         File outputImage = new File(getActivity().getExternalCacheDir(),
                 PHOTO_IMAGE_FILE_NAME);
         try {
@@ -262,8 +280,6 @@ public class MeFragment extends Fragment implements View.OnClickListener {
             switch (requestCode) {
                 //相机数据
                 case CAMERA_REQUEST_CODE:
-                    //tempFile = new File(Environment.getExternalStorageDirectory(), PHOTO_IMAGE_FILE_NAME);
-                    //startPhotoZoom(Uri.fromFile(tempFile));
                     startPhotoZoom(imageUri);
                     break;
                 //相册数据
@@ -290,7 +306,6 @@ public class MeFragment extends Fragment implements View.OnClickListener {
         if (uri == null) {
             return;
         }
-
         Intent intent = new Intent("com.android.camera.action.CROP");
         intent.setDataAndType(uri, "image/*");
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
@@ -323,5 +338,4 @@ public class MeFragment extends Fragment implements View.OnClickListener {
         //保存图片到shareutils
         UtilTools.putImageToShare(getActivity(), profile_image);
     }
-
 }

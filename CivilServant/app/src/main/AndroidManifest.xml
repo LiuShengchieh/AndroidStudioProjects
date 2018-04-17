@@ -26,7 +26,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <!--闪屏页-->
-        <activity android:name=".ui.SplashActivity"
+        <activity
+            android:name=".ui.SplashActivity"
             android:theme="@style/NoActivityFullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,25 +35,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
+        <!--整卷-->
         <activity
             android:name=".ui.ExamActivity"
             android:label="@string/activity_exam" />
+        <!--言语理解与表达-->
         <activity
             android:name=".ui.YanyuActivity"
             android:label="@string/activity_yanyu" />
+        <!--数量关系-->
         <activity
             android:name=".ui.ShulActivity"
             android:label="@string/activity_shul" />
+        <!--判断推理-->
         <activity
             android:name=".ui.PandActivity"
             android:label="@string/activity_pand" />
+        <!--资料分析-->
         <activity
             android:name=".ui.ZiliaoActivity"
             android:label="@string/activity_ziliao" />
+        <!--常识判断-->
         <activity
             android:name=".ui.ChangsActivity"
             android:label="@string/activity_changshi" />
+        <!--"知识"页面：8部分-->
         <activity
             android:name=".ui.HistoryActivity"
             android:label="@string/activity_history" />
@@ -77,41 +84,24 @@
         <activity
             android:name=".ui.TitleActivity"
             android:label="@string/activity_title" />
-=======
-        <activity android:name=".ui.ExamActivity"
-            android:label="@string/activity_exam"/>
-        <activity android:name=".ui.YanyuActivity"
-            android:label="@string/activity_yanyu"/>
-        <activity android:name=".ui.ShulActivity"
-            android:label="@string/activity_shul"/>
-        <activity android:name=".ui.HistoryActivity"
-            android:label="@string/activity_history"/>
-        <activity android:name=".ui.BasicActivity"
-            android:label="@string/activity_basic"/>
-        <activity android:name=".ui.ProcessActivity"
-            android:label="@string/activity_process"/>
-        <activity android:name=".ui.AnnouncementActivity"
-            android:label="@string/activity_announcement"/>
-        <activity android:name=".ui.TimeActivity"
-            android:label="@string/activity_time"/>
-        <activity android:name=".ui.InstitutionActivity"
-            android:label="@string/activity_institution"/>
-        <activity android:name=".ui.SecretActivity"
-            android:label="@string/activity_secret"/>
-        <activity android:name=".ui.TitleActivity"
-            android:label="@string/activity_title"/>
         <!--主页-->
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".MainActivity" />
         <!--引导页-->
-        <activity android:name=".ui.GuideActivity"
-            android:theme="@style/NoActivityFullscreen"/>
+        <activity
+            android:name=".ui.GuideActivity"
+            android:theme="@style/NoActivityFullscreen" />
         <!--注册-->
-        <activity android:name=".ui.RegisteredActivity"
-            android:label="@string/register"/>
+        <activity
+            android:name=".ui.RegisteredActivity"
+            android:label="@string/register" />
         <!--登录-->
-        <activity android:name=".ui.LoginActivity"
-            android:label="@string/login"/>
->>>>>>> dev
+        <activity
+            android:name=".ui.LoginActivity"
+            android:label="@string/login" />
+        <!--忘记/重置 密码-->
+        <activity
+            android:name=".ui.ForgetPasswordActivity"
+            android:label="@string/forget_pwd" />
     </application>
 
 </manifest>
