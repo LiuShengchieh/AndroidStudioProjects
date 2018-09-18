@@ -1,0 +1,19 @@
+
+q
+Aapp/src/main/java/com/example/a140/civilservant/MainActivity.java,c/c/cc64ec66ebbd909c6badc01c474fde6ae37cce16
+v
+Fapp/src/main/java/com/example/a140/civilservant/view/CustomDialog.java,e/c/ecb0a99ab60cca07eaf3a41525734ea547f3487b
+~
+Napp/src/main/java/com/example/a140/civilservant/view/ImageBannerViewGroup.java,a/3/a3f931db6abce51ddb9ba2db4316d0527273d61c
+€
+Papp/src/main/java/com/example/a140/civilservant/view/ImageBannerFrameLayout.java,9/c/9cdd8ef8b9b1f2e4613dcbc94b789a6365f47727
+a
+1app/src/main/res/layout/activity_announcement.xml,7/8/781d1cabf86ecc7d59d29c6c875981b882901dca
+Z
+*app/src/main/res/layout/activity_basic.xml,6/5/6589a7c7c17001ebdca26c766528882f561969b9
+Z
+*app/src/main/res/layout/activity_login.xml,1/f/1f7e901185d74bf05f9fcb38f9ed35ea78cd4c6e
+P
+ app/src/main/res/anim/pop_in.xml,6/0/60d9ce01551f7b45cf4f53f70efe42144d0e6f81
+Q
+!app/src/main/res/anim/pop_out.xml,1/7/17089e2c5e30b1931eab5f2e6a7c3cb41715c3d5

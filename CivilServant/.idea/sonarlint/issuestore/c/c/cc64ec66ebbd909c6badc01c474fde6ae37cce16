@@ -1,0 +1,12 @@
+
+Xsquid:S1075J"ARefactor your code to get this URI from a customizable parameter.(¢îıÍ
+isquid:S00117J"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢îıÍ
+Esquid:S1125O")Remove the literal "false" boolean value.(ã¬ûãøÿÿÿÿ
+squid:S1186œ"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ø´´øÿÿÿÿ
+Q"squid:SwitchLastCaseIsDefaultCheck§""Add a default case to this switch.(Í´êá
+isquid:S00117L"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÛøÕ
+squid:S1186¸"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(™Î«şÿÿÿÿ
+jsquid:MaximumInheritanceDepth "<This class has 6 parents which is greater than 5 authorized.(ß‡Úøÿÿÿÿ
+Rsquid:S2696>"6Make the enclosing method "static" or remove this set.(ã—Á¬ûÿÿÿÿ
+?squid:S1148h"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+esquid:S2095X"NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(Ö‰ ¶
